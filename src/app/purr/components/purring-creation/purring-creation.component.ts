@@ -30,6 +30,7 @@ export class PurringCreationComponent {
       this.store.dispatch(
         PurringActions.postAPurring({ newPurring: newPurring })
       );
+      this.purringContent.setValue('');
     }
   }
 }

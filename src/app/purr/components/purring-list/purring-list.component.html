@@ -1,4 +1,4 @@
 <div class="" *ngIf="purrings$ | async; let purrings">
   <app-purring *ngFor="let purring of purrings" [purring]="purring"></app-purring>
-  <button mat-raised-button color="primary" type="button" (click)="displayMore()">Display more</button>
+  <button mat-raised-button color="primary" type="button" (click)="displayMore(purrings.length)">Display more</button>
 </div>

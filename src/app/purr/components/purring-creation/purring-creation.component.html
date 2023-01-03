@@ -4,5 +4,7 @@
     <mat-error *ngIf="purringContent.hasError('maxlength')"> Content must not exceed 140 characters </mat-error>
   </mat-form-field>
 
-  <button mat-raised-button color="primary" [disabled]="purringContent.invalid">Purring...</button>
+  <button mat-raised-button color="primary" [disabled]="purringContent.invalid" (click)="postAPurring()">
+    Purring...
+  </button>
 </div>

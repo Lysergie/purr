@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { PurringActions } from '../../store/purr.actions';
 import { Purring, PurringListState } from '../../store/purr.reducer';
 import { selectPurrings } from '../../store/purr.selector';
 
@@ -16,7 +17,9 @@ export class PurringListComponent {
     this.purrings$ = this.store.select(selectPurrings);
   }
 
-  displayMore(): void {
-    // this.store.dispatch();
+  displayMore(numberOfPurrings: number): void {
+    this.store.dispatch(
+      PurringActions.displayMorePurrings({ offset: numberOfPurrings })
+    );
   }
 }

@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { PurringActions } from '../../store/purr.actions';
-import { PurringListState } from '../../store/purr.reducer';
+import { Purring, PurringListState } from '../../store/purr.reducer';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-purring-creation',
@@ -18,6 +19,17 @@ export class PurringCreationComponent {
   constructor(private readonly store: Store<PurringListState>) {}
 
   postAPurring(): void {
-    //this.store.dispatch(PurringActions.postAPurring({}));
+    if (this.purringContent && this.purringContent.value) {
+      const newPurring: Purring = {
+        id: uuidv4(),
+        content: this.purringContent.value,
+        likeCounter: 0,
+        publicationDate: new Date(),
+        alreadyLiked: false
+      };
+      this.store.dispatch(
+        PurringActions.postAPurring({ newPurring: newPurring })
+      );
+    }
   }
 }

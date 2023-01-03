@@ -6,14 +6,37 @@ import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PurrComponent } from './purr/purr.component';
+import { purrReducer } from './purr/store/purr.reducer';
+import { PurringListComponent } from './purr/components/purring-list/purring-list.component';
+import { PurringComponent } from './purr/components/purring/purring.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { PurringCreationComponent } from './purr/components/purring-creation/purring-creation.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
-  declarations: [AppComponent, PurrComponent],
+  declarations: [
+    AppComponent,
+    PurrComponent,
+    PurringComponent,
+    PurringListComponent,
+    PurringCreationComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({}, {}),
-    BrowserAnimationsModule
+    StoreModule.forRoot({ purrings: purrReducer }),
+    BrowserAnimationsModule,
+
+    MatToolbarModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatCardModule,
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

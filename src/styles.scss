@@ -15,7 +15,7 @@ $purr-primary: mat.define-palette(mat.$cyan-palette, A100);
 $purr-accent: mat.define-palette(mat.$green-palette, A400);
 
 // The warn palette is optional (defaults to red).
-$purr-warn: mat.define-palette(mat.$amber-palette, A400);
+$purr-warn: mat.define-palette(mat.$amber-palette, 800);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".

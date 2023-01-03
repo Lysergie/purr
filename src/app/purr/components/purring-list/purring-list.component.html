@@ -1,1 +1,4 @@
-<p>purring-list works!</p>
+<div class="" *ngIf="purrings$ | async; let purrings">
+  <app-purring *ngFor="let purring of purrings" [purring]="purring"></app-purring>
+  <button type="button" (click)="displayMore()">Display more</button>
+</div>

@@ -2,6 +2,8 @@ import { createReducer, on } from '@ngrx/store';
 import { mockPurrings } from '../mocks/purrings.mock';
 import { PurringActions } from './purr.actions';
 
+export const featureKey = 'purr';
+
 export interface Purring {
   id: string;
   content: string;
@@ -9,11 +11,11 @@ export interface Purring {
   publicationDate: Date;
 }
 
-export interface PurringsListState {
+export interface PurringListState {
   purrings: Array<Purring>;
 }
 
-export const initialState: PurringsListState = {
+export const initialState: PurringListState = {
   purrings: mockPurrings.slice(0, 20)
 };
 

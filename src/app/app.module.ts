@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PurrComponent } from './purr/purr.component';
-import { purrReducer } from './purr/store/purr.reducer';
+import { featureKey, purrReducer } from './purr/store/purr.reducer';
 import { PurringListComponent } from './purr/components/purring-list/purring-list.component';
 import { PurringComponent } from './purr/components/purring/purring.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -29,7 +29,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({ purrings: purrReducer }),
+    StoreModule.forRoot({ purr:  purrReducer }),
+    StoreModule.forFeature(featureKey, purrReducer),
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,

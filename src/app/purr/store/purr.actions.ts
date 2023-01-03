@@ -6,10 +6,8 @@ export namespace PurringActions {
     '[Purring Component] Post a Purring',
     props<{ purring: Purring }>()
   );
-  export const likeIncrement = createAction(
-    '[Purring Component] Like increment'
-  );
-  export const likeDecrement = createAction(
-    '[Purring Component] Like decrement'
+  export const updatePurringLikeCounter = createAction(
+    '[Purring Component] Like counter update',
+    props<{ purringToUpdate: Purring }>()
   );
 }

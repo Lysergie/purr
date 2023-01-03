@@ -29,7 +29,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({ purr:  purrReducer }),
+    StoreModule.forRoot({ purr: purrReducer }),
     StoreModule.forFeature(featureKey, purrReducer),
     BrowserAnimationsModule,
     FormsModule,

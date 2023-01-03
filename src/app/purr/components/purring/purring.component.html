@@ -1,12 +1,18 @@
-<div class="">
-  <p class="">{{ purring?.content }}</p>
-  <div class="">
-    <div class="">
-      <button>toto</button>
-      <span>{{ purring?.likeCounter }}</span>
-    </div>
-    <div class="">
-      {{ purring?.publicationDate }}
-    </div>
-  </div>
-</div>
+<mat-card class="purring-card">
+  <mat-card-header>
+    <mat-card-title><mat-icon>account_box</mat-icon> User</mat-card-title>
+    <mat-card-subtitle>{{ purring?.publicationDate | date : 'short' }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      {{ purring?.content }}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-icon-button (click)="performLike()">
+      <mat-icon *ngIf="purring?.alreadyLiked">favorite</mat-icon>
+      <mat-icon *ngIf="!purring?.alreadyLiked">favorite_border</mat-icon>
+    </button>
+    {{ purring?.likeCounter }}
+  </mat-card-actions>
+</mat-card>

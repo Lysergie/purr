@@ -9,6 +9,7 @@ export interface Purring {
   content: string;
   likeCounter: number;
   publicationDate: Date;
+  alreadyLiked: boolean;
 }
 
 export interface PurringListState {
@@ -16,7 +17,7 @@ export interface PurringListState {
 }
 
 export const initialState: PurringListState = {
-  purrings: mockPurrings.slice(0, 20)
+  purrings: mockPurrings.slice(0, 5)
 };
 
 export const purrReducer = createReducer(
@@ -24,7 +25,12 @@ export const purrReducer = createReducer(
 
   on(PurringActions.postAPurring, (state, action) => state),
 
-  on(PurringActions.likeIncrement, state => state),
-
-  on(PurringActions.likeDecrement, state => state)
+  on(PurringActions.updatePurringLikeCounter, (state, { purringToUpdate }) => ({
+    purrings: state.purrings.map((purring: Purring) => {
+      if (purring.id === purringToUpdate.id) return { ...purringToUpdate };
+      else {
+        return purring;
+      }
+    })
+  }))
 );

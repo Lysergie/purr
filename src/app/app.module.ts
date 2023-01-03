@@ -5,12 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule } from '@angular/material/button';
+import { PurrComponent } from './purr/purr.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, PurrComponent],
   imports: [
-    MatButtonModule,
     BrowserModule,
     AppRoutingModule,
     StoreModule.forRoot({}, {}),
